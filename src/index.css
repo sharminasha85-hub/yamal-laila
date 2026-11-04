@@ -1,0 +1,33 @@
+:root {
+  --emerald-deep: #061c14;
+  --emerald-royal: #0b2e21;
+  --emerald-mid: #124532;
+  --gold-bright: #ffe599;
+  --gold-primary: #d4af37;
+  --gold-deep: #996515;
+  --ivory-cream: #fffdf7;
+  --ivory-paper: #f7f0dc;
+  --text-light: #fcf8ec;
+  --text-muted: #d5c7a3;
+  --crimson-wax: #8f141b;
+  --crimson-wax-dark: #54080d;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--emerald-deep);
+  color: var(--text-light);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}

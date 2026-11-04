@@ -274,7 +274,8 @@ export default function App() {
               title="Replay the 3D Inland Letter Unfolding Animation"
             >
               <RotateCcw size={15} />
-              <span>Replay Inland Opening</span>
+              <span className="desktop-label">Replay Inland Opening</span>
+              <span className="mobile-label">Replay</span>
             </button>
           )}
 
@@ -286,7 +287,12 @@ export default function App() {
             title={muted ? 'Unmute Wedding Music' : 'Mute Wedding Music'}
           >
             {muted ? <VolumeX size={17} /> : <Volume2 size={17} />}
-            <span>{muted ? 'Music Muted' : musicPlaying ? 'Playing Music' : 'Music On'}</span>
+            <span className="desktop-label">
+              {muted ? 'Music Muted' : musicPlaying ? 'Playing Music' : 'Music On'}
+            </span>
+            <span className="mobile-label">
+              {muted ? 'Muted' : 'Music'}
+            </span>
           </button>
         </div>
       </header>

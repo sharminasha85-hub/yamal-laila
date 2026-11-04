@@ -20,18 +20,19 @@ export default function InlandEnvelope({ onOpenComplete }) {
   // Subtle idle float & mouse 3D tilt before opening
   useEffect(() => {
     soundFX.ensureMusicElement();
+    const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
 
     const ctx = gsap.context(() => {
       // Initial entrance of the Inland Letter onto the desk
       gsap.fromTo(
         inlandWrapperRef.current,
-        { y: 70, opacity: 0, rotateX: 25, scale: 0.9 },
+        { y: 50, opacity: 0, rotateX: isMobile ? 10 : 22, scale: 0.94 },
         {
           y: 0,
           opacity: 1,
-          rotateX: 8,
+          rotateX: isMobile ? 3 : 8,
           scale: 1,
-          duration: 1.3,
+          duration: 1.2,
           ease: 'power3.out',
         }
       );
@@ -52,6 +53,8 @@ export default function InlandEnvelope({ onOpenComplete }) {
 
   const handleMouseMove = (e) => {
     if (phase !== 'sealed' || !inlandWrapperRef.current) return;
+    if (typeof window !== 'undefined' && window.innerWidth <= 768) return;
+
     const rect = inlandWrapperRef.current.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2;
     const centerY = rect.top + rect.height / 2;
@@ -68,6 +71,8 @@ export default function InlandEnvelope({ onOpenComplete }) {
 
   const handleMouseLeave = () => {
     if (phase !== 'sealed' || !inlandWrapperRef.current) return;
+    if (typeof window !== 'undefined' && window.innerWidth <= 768) return;
+
     gsap.to(inlandWrapperRef.current, {
       rotateY: 0,
       rotateX: 8,
@@ -81,7 +86,7 @@ export default function InlandEnvelope({ onOpenComplete }) {
     setPhase('unfolding');
     soundFX.playSealCrack();
 
-    const isMobile = typeof window !== 'undefined' && window.innerWidth <= 640;
+    const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
 
     const tl = gsap.timeline({
       onComplete: () => {
@@ -98,10 +103,10 @@ export default function InlandEnvelope({ onOpenComplete }) {
 
     // 1. Center and level the 3D inland card
     tl.to(inlandWrapperRef.current, {
-      rotateX: isMobile ? 2 : 4,
+      rotateX: 0,
       rotateY: 0,
-      scale: isMobile ? 0.98 : 1.02,
-      duration: 0.4,
+      scale: 1,
+      duration: 0.35,
       ease: 'power2.inOut',
     });
 
@@ -109,7 +114,7 @@ export default function InlandEnvelope({ onOpenComplete }) {
     tl.to(
       waxSealRef.current,
       {
-        scale: 1.32,
+        scale: 1.28,
         rotation: 14,
         duration: 0.25,
         ease: 'back.out(2)',
@@ -119,7 +124,7 @@ export default function InlandEnvelope({ onOpenComplete }) {
       .fromTo(
         burstRingRef.current,
         { scale: 0.4, opacity: 1 },
-        { scale: isMobile ? 2.2 : 2.8, opacity: 0, duration: 0.65, ease: 'power2.out' },
+        { scale: isMobile ? 2.1 : 2.8, opacity: 0, duration: 0.65, ease: 'power2.out' },
         '-=0.1'
       )
       .to(
@@ -127,8 +132,8 @@ export default function InlandEnvelope({ onOpenComplete }) {
         {
           scale: 0,
           opacity: 0,
-          y: 20,
-          duration: 0.35,
+          y: 16,
+          duration: 0.32,
           ease: 'power2.in',
         },
         '-=0.45'
@@ -140,8 +145,8 @@ export default function InlandEnvelope({ onOpenComplete }) {
         topFlapRef.current,
         {
           rotateX: 180,
-          opacity: isMobile ? 0.35 : 1,
-          duration: 0.85,
+          opacity: isMobile ? 0 : 1,
+          duration: 0.82,
           ease: 'power3.inOut',
         },
         '-=0.1'
@@ -154,8 +159,8 @@ export default function InlandEnvelope({ onOpenComplete }) {
         leftWingRef.current,
         {
           rotateY: -176,
-          opacity: isMobile ? 0.2 : 1,
-          duration: 0.78,
+          opacity: isMobile ? 0 : 1,
+          duration: 0.75,
           ease: 'power3.inOut',
         },
         '-=0.3'
@@ -165,8 +170,8 @@ export default function InlandEnvelope({ onOpenComplete }) {
         rightWingRef.current,
         {
           rotateY: 176,
-          opacity: isMobile ? 0.2 : 1,
-          duration: 0.78,
+          opacity: isMobile ? 0 : 1,
+          duration: 0.75,
           ease: 'power3.inOut',
         },
         '-=0.65'
@@ -177,8 +182,8 @@ export default function InlandEnvelope({ onOpenComplete }) {
       bottomFlapRef.current,
       {
         rotateX: -176,
-        opacity: isMobile ? 0.35 : 1,
-        duration: 0.8,
+        opacity: isMobile ? 0 : 1,
+        duration: 0.78,
         ease: 'power3.inOut',
       },
       '-=0.45'
@@ -188,21 +193,21 @@ export default function InlandEnvelope({ onOpenComplete }) {
     tl.to(
       innerLetterRef.current,
       {
-        scale: isMobile ? 1.01 : 1.06,
-        y: isMobile ? -4 : -14,
-        boxShadow: '0 30px 70px rgba(0, 0, 0, 0.65), 0 0 45px rgba(212, 175, 55, 0.38)',
-        duration: 0.9,
+        scale: isMobile ? 1 : 1.05,
+        y: isMobile ? 0 : -12,
+        boxShadow: '0 26px 64px rgba(0, 0, 0, 0.65), 0 0 40px rgba(212, 175, 55, 0.35)',
+        duration: 0.85,
         ease: 'power3.out',
       },
       '-=0.3'
     ).fromTo(
       '.inland-inner-stagger',
-      { y: 18, opacity: 0 },
+      { y: 14, opacity: 0 },
       {
         y: 0,
         opacity: 1,
-        stagger: 0.12,
-        duration: 0.65,
+        stagger: 0.1,
+        duration: 0.6,
         ease: 'power2.out',
       },
       '-=0.55'
@@ -213,9 +218,9 @@ export default function InlandEnvelope({ onOpenComplete }) {
     soundFX.playPaperUnfold(4);
     gsap.to(stageRef.current, {
       opacity: 0,
-      scale: 1.08,
-      y: -30,
-      duration: 0.75,
+      scale: 1.04,
+      y: -24,
+      duration: 0.7,
       ease: 'power3.inOut',
       onComplete: () => {
         onOpenComplete();
@@ -233,18 +238,20 @@ export default function InlandEnvelope({ onOpenComplete }) {
       {/* Top Header Instruction */}
       <div className="inland-top-caption">
         <span className="inland-badge">
-          <Sparkles size={14} /> ROYAL INLAND LETTER INVITATION <Sparkles size={14} />
+          <Sparkles size={13} /> ROYAL INLAND LETTER INVITATION <Sparkles size={13} />
         </span>
         <p className="inland-subtitle-hint">
-          {phase === 'sealed' && 'Click the Crimson & Gold Wax Seal to break the seal and unfold the Inland Letter'}
+          {phase === 'sealed' &&
+            'Tap the Crimson & Gold Wax Seal to break the seal and unfold the Inland Letter'}
           {phase === 'unfolding' && 'Unfolding the royal inland folds from Thazhe Chovva...'}
-          {phase === 'revealed' && 'The Inland Letter is open! Explore the full wedding celebration below'}
+          {phase === 'revealed' &&
+            'The Inland Letter is open! Explore the full wedding celebration below'}
         </p>
       </div>
 
       {/* 3D Perspective Container for the Inland Letter */}
       <div className="inland-perspective-scene">
-        <div ref={inlandWrapperRef} className="inland-3d-card">
+        <div ref={inlandWrapperRef} className={`inland-3d-card phase-${phase}`}>
           {/* ============================================================
               INNER LETTER SHEET (Revealed when all 4 Inland flaps unfold)
              ============================================================ */}
@@ -259,7 +266,7 @@ export default function InlandEnvelope({ onOpenComplete }) {
               <p className="inland-bismillah inland-inner-stagger">
                 بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
               </p>
-              <p className="inland- blessing-line inland-inner-stagger">
+              <p className="inland-blessing-line inland-inner-stagger">
                 In the Name of Allah, the Most Gracious, the Most Merciful
               </p>
 
@@ -296,7 +303,7 @@ export default function InlandEnvelope({ onOpenComplete }) {
                   onClick={handleProceedToFullInvite}
                   className="enter-invitation-btn inland-inner-stagger"
                 >
-                  <MailOpen size={18} />
+                  <MailOpen size={17} />
                   <span>Enter Full Interactive Invitation</span>
                 </button>
               )}
@@ -420,4 +427,3 @@ export default function InlandEnvelope({ onOpenComplete }) {
     </section>
   );
 }
-

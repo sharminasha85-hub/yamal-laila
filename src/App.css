@@ -4,6 +4,7 @@
 .wedding-app-shell {
   position: relative;
   min-height: 100vh;
+  min-height: 100dvh;
   width: 100%;
   overflow-x: hidden;
   background: radial-gradient(circle at 50% 18%, #154c37 0%, #09261b 52%, #04130d 100%);
@@ -73,8 +74,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px clamp(16px, 4vw, 48px);
-  background: linear-gradient(180deg, rgba(4, 19, 13, 0.88) 0%, rgba(4, 19, 13, 0) 100%);
+  padding: 14px clamp(14px, 4vw, 48px);
+  background: linear-gradient(180deg, rgba(4, 19, 13, 0.9) 0%, rgba(4, 19, 13, 0) 100%);
   backdrop-filter: blur(6px);
 }
 
@@ -87,13 +88,14 @@
 .brand-monogram {
   font-family: 'Cinzel Decorative', serif;
   font-weight: 700;
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   color: var(--gold-bright);
   letter-spacing: 0.08em;
   padding: 4px 12px;
   border: 1px solid rgba(212, 175, 55, 0.5);
   border-radius: 999px;
   background: rgba(11, 46, 33, 0.75);
+  white-space: nowrap;
 }
 
 .brand-date-chip {
@@ -101,6 +103,7 @@
   letter-spacing: 0.16em;
   color: var(--text-muted);
   font-weight: 500;
+  white-space: nowrap;
 }
 
 .topbar-actions {
@@ -113,7 +116,7 @@
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  background: rgba(12, 48, 35, 0.85);
+  background: rgba(12, 48, 35, 0.88);
   color: var(--gold-bright);
   border: 1px solid rgba(212, 175, 55, 0.45);
   padding: 8px 14px;
@@ -122,6 +125,7 @@
   font-weight: 500;
   cursor: pointer;
   transition: all 0.25s ease;
+  white-space: nowrap;
 }
 
 .topbar-btn:hover {
@@ -130,8 +134,8 @@
   transform: translateY(-1px);
 }
 
-.topbar-btn.icon-only {
-  padding: 8px 10px;
+.mobile-label {
+  display: none;
 }
 
 /* ==========================================================================
@@ -141,38 +145,39 @@
   position: relative;
   z-index: 10;
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 82px 16px 32px;
+  padding: 78px 16px 28px;
 }
 
 .inland-top-caption {
   text-align: center;
   max-width: 560px;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
 }
 
 .inland-badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.75rem;
-  letter-spacing: 0.22em;
+  font-size: 0.74rem;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--gold-bright);
   background: rgba(212, 175, 55, 0.12);
   border: 1px solid rgba(212, 175, 55, 0.35);
-  padding: 6px 16px;
+  padding: 6px 15px;
   border-radius: 999px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .inland-subtitle-hint {
-  font-size: 0.94rem;
+  font-size: 0.92rem;
   color: var(--text-muted);
-  line-height: 1.5;
+  line-height: 1.45;
 }
 
 /* 3D Perspective Container */
@@ -183,14 +188,13 @@
   align-items: center;
   justify-content: center;
   margin: auto 0;
-  padding: 20px 0;
+  padding: 14px 0;
 }
 
 .inland-3d-card {
   position: relative;
   width: min(92vw, 560px);
-  height: min(68vh, 430px);
-  min-height: 360px;
+  height: 430px;
   transform-style: preserve-3d;
   border-radius: 14px;
   box-shadow:
@@ -205,7 +209,7 @@
   background: radial-gradient(circle at 50% 30%, #fffdf9 0%, #f5ebd1 75%, #ead8ac 100%);
   color: #15281f;
   border-radius: 14px;
-  padding: 16px;
+  padding: 14px;
   z-index: 2;
   display: flex;
   align-items: center;
@@ -221,7 +225,7 @@
   outline: 1px dashed rgba(153, 101, 21, 0.45);
   outline-offset: -7px;
   border-radius: 10px;
-  padding: 18px 20px;
+  padding: 16px 18px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -231,8 +235,8 @@
 
 .corner-ornament {
   position: absolute;
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   border-color: #996515;
   border-style: solid;
 }
@@ -260,15 +264,16 @@
 
 .inland-bismillah {
   font-family: 'Amiri', serif;
-  font-size: 1.35rem;
+  font-size: 1.3rem;
   color: #7c5310;
   margin-bottom: 2px;
+  line-height: 1.25;
 }
 
 .inland-blessing-line {
   font-size: 0.72rem;
   color: #5c4b28;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .inland-couple-names {
@@ -276,21 +281,23 @@
   align-items: baseline;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 10px;
-  margin: 4px 0;
+  gap: 8px;
+  margin: 2px 0;
 }
 
 .inland-couple-names h2 {
   font-family: 'Great Vibes', cursive;
-  font-size: clamp(1.9rem, 4.5vw, 2.55rem);
+  font-size: clamp(1.85rem, 4.2vw, 2.5rem);
   font-weight: 400;
   color: #0b3324;
+  padding: 0 4px;
+  line-height: 1.15;
 }
 
 .inland-ampersand {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   color: #b07d1a;
 }
 
@@ -314,7 +321,7 @@
 
 .inland-date-highlight {
   font-family: 'Cinzel Decorative', serif;
-  font-size: 0.86rem;
+  font-size: 0.84rem;
   font-weight: 700;
   letter-spacing: 0.14em;
   color: #7c5310;
@@ -330,7 +337,7 @@
 }
 
 .inland-mini-pill {
-  font-size: 0.76rem;
+  font-size: 0.75rem;
   background: rgba(11, 51, 36, 0.08);
   border: 1px solid rgba(153, 101, 21, 0.4);
   color: #123729;
@@ -339,20 +346,20 @@
 }
 
 .inland-venue-line {
-  font-size: 0.84rem;
+  font-size: 0.82rem;
   color: #2c3e35;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .enter-invitation-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 9px;
+  gap: 8px;
   background: linear-gradient(135deg, #d4af37 0%, #f5d77f 50%, #aa7c11 100%);
   color: #071f16;
   font-weight: 700;
-  font-size: 0.86rem;
+  font-size: 0.85rem;
   padding: 11px 22px;
   border-radius: 999px;
   border: none;
@@ -360,6 +367,7 @@
   box-shadow: 0 8px 24px rgba(170, 124, 17, 0.4);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   text-decoration: none;
+  text-align: center;
 }
 
 .enter-invitation-btn:hover {
@@ -395,7 +403,7 @@
   top: 8%;
   bottom: 8%;
   left: 0;
-  width: 24%;
+  width: 22%;
   transform-origin: left center;
   z-index: 4;
 }
@@ -409,7 +417,7 @@
   top: 8%;
   bottom: 8%;
   right: 0;
-  width: 24%;
+  width: 22%;
   transform-origin: right center;
   z-index: 4;
 }
@@ -440,8 +448,8 @@
 .wing-vertical-text {
   writing-mode: vertical-rl;
   text-orientation: mixed;
-  font-size: 0.62rem;
-  letter-spacing: 0.22em;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
   color: rgba(255, 229, 153, 0.65);
 }
 
@@ -467,7 +475,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  height: 62%;
+  height: 58%;
   transform-origin: bottom center;
   z-index: 5;
 }
@@ -476,7 +484,7 @@
   background: linear-gradient(165deg, #124331 0%, #09261b 100%);
   border: 1.5px solid rgba(212, 175, 55, 0.55);
   border-radius: 0 0 14px 14px;
-  padding: 24px 26px 18px;
+  padding: 20px 22px 16px;
   box-shadow: 0 -8px 22px rgba(0, 0, 0, 0.42);
   display: flex;
   flex-direction: column;
@@ -486,15 +494,15 @@
 .inland-address-box {
   border: 1px dashed rgba(212, 175, 55, 0.45);
   border-radius: 10px;
-  padding: 14px 16px;
-  background: rgba(5, 22, 16, 0.45);
+  padding: 12px 14px;
+  background: rgba(5, 22, 16, 0.48);
 }
 
 .inland-stamp-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .inland-postmark {
@@ -502,20 +510,20 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 82px;
-  height: 82px;
+  width: 72px;
+  height: 72px;
   border: 1.5px dashed rgba(255, 229, 153, 0.65);
   border-radius: 50%;
-  font-size: 0.55rem;
-  letter-spacing: 0.08em;
+  font-size: 0.52rem;
+  letter-spacing: 0.06em;
   color: var(--gold-bright);
   transform: rotate(-8deg);
   text-align: center;
-  line-height: 1.35;
+  line-height: 1.3;
 }
 
 .inland-postmark strong {
-  font-size: 0.64rem;
+  font-size: 0.6rem;
   border-top: 1px solid rgba(255, 229, 153, 0.5);
   border-bottom: 1px solid rgba(255, 229, 153, 0.5);
   padding: 1px 4px;
@@ -523,8 +531,8 @@
 }
 
 .inland-royal-stamp {
-  width: 78px;
-  padding: 6px;
+  width: 74px;
+  padding: 5px;
   background: linear-gradient(135deg, #2b1806, #52320c);
   border: 2px dotted #f5d77f;
   text-align: center;
@@ -536,31 +544,31 @@
 
 .stamp-top,
 .stamp-sub {
-  font-size: 0.5rem;
-  letter-spacing: 0.1em;
+  font-size: 0.48rem;
+  letter-spacing: 0.08em;
   color: #e6c677;
 }
 
 .stamp-center {
   font-family: 'Cinzel Decorative', serif;
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   color: #fff3c4;
 }
 
 .inland-recipient-lines {
   text-align: left;
   border-top: 1px solid rgba(212, 175, 55, 0.25);
-  padding-top: 8px;
+  padding-top: 7px;
 }
 
 .to-label {
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   color: var(--gold-bright);
   font-weight: 600;
 }
 
 .to-sub {
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   color: var(--text-muted);
   margin: 2px 0;
 }
@@ -568,7 +576,7 @@
 .to-names-script {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size: 1.15rem;
+  font-size: 1.12rem;
   font-weight: 600;
   color: #fff3c4;
 }
@@ -578,7 +586,7 @@
   left: 0;
   right: 0;
   top: 0;
-  height: 54%;
+  height: 46%;
   transform-origin: top center;
   z-index: 6;
 }
@@ -592,29 +600,30 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding: 22px 20px;
+  padding: 18px 18px 14px;
   text-align: center;
 }
 
 .inland-type-title {
-  font-size: 0.65rem;
-  letter-spacing: 0.22em;
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
   color: var(--gold-bright);
   opacity: 0.88;
 }
 
 .inland-front-monogram {
   font-family: 'Great Vibes', cursive;
-  font-size: clamp(2.1rem, 5vw, 2.75rem);
+  font-size: clamp(2rem, 4.8vw, 2.65rem);
   font-weight: 400;
   color: #fff5d6;
-  margin: 6px 0 2px;
+  margin: 4px 0 2px;
+  padding: 0 8px;
   text-shadow: 0 3px 12px rgba(0, 0, 0, 0.45);
 }
 
 .inland-front-sub {
-  font-size: 0.78rem;
-  letter-spacing: 0.08em;
+  font-size: 0.76rem;
+  letter-spacing: 0.06em;
   color: var(--text-muted);
 }
 
@@ -623,7 +632,7 @@
    ========================================================================== */
 .royal-wax-seal-btn {
   position: absolute;
-  top: 50%;
+  top: 46%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 12;
@@ -633,15 +642,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   outline: none;
 }
 
 .wax-seal-pulse {
   position: absolute;
-  top: 4px;
-  width: 96px;
-  height: 96px;
+  top: 2px;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(212, 175, 55, 0.85) 0%, rgba(212, 175, 55, 0) 72%);
   pointer-events: none;
@@ -649,12 +658,12 @@
 
 .wax-burst-ring {
   position: absolute;
-  top: 50%;
+  top: 46%;
   left: 50%;
-  width: 90px;
-  height: 90px;
-  margin-top: -45px;
-  margin-left: -45px;
+  width: 88px;
+  height: 88px;
+  margin-top: -44px;
+  margin-left: -44px;
   border-radius: 50%;
   border: 3px solid var(--gold-bright);
   opacity: 0;
@@ -663,8 +672,8 @@
 }
 
 .wax-seal-disc {
-  width: 94px;
-  height: 94px;
+  width: 88px;
+  height: 88px;
   border-radius: 50%;
   background: radial-gradient(circle at 35% 30%, #bd222b 0%, var(--crimson-wax) 55%, var(--crimson-wax-dark) 100%);
   border: 2.5px solid #e6c15c;
@@ -683,8 +692,8 @@
 }
 
 .wax-seal-inner-ring {
-  width: 74px;
-  height: 74px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   border: 1.2px dashed rgba(255, 229, 153, 0.78);
   display: flex;
@@ -696,43 +705,45 @@
 
 .wax-arabic-top {
   font-family: 'Amiri', serif;
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   line-height: 1;
 }
 
 .wax-monogram {
   font-family: 'Cinzel Decorative', serif;
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-weight: 700;
   margin: 2px 0;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .wax-date-tiny {
-  font-size: 0.55rem;
+  font-size: 0.52rem;
   letter-spacing: 0.1em;
 }
 
 .wax-click-cta {
-  background: rgba(6, 28, 20, 0.92);
+  background: rgba(6, 28, 20, 0.94);
   color: var(--gold-bright);
   border: 1px solid rgba(212, 175, 55, 0.65);
   padding: 4px 12px;
   border-radius: 999px;
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
+  white-space: nowrap;
 }
 
 .inland-bottom-controls {
-  margin-top: 12px;
+  margin-top: 8px;
 }
 
 .inland-action-pill {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   padding: 11px 22px;
   border-radius: 999px;
@@ -777,7 +788,7 @@
   background: linear-gradient(180deg, rgba(12, 48, 35, 0.84) 0%, rgba(6, 26, 19, 0.92) 100%);
   border: 1px solid rgba(212, 175, 55, 0.38);
   border-radius: 28px;
-  padding: clamp(48px, 8vw, 88px) clamp(20px, 6vw, 68px) clamp(40px, 6vw, 64px);
+  padding: clamp(54px, 8vw, 88px) clamp(20px, 6vw, 68px) clamp(40px, 6vw, 64px);
   box-shadow: 0 28px 70px rgba(0, 0, 0, 0.55);
   backdrop-filter: blur(10px);
   text-align: center;
@@ -805,7 +816,7 @@
 
 .arabic-calligraphy {
   font-family: 'Amiri', serif;
-  font-size: clamp(1.65rem, 4vw, 2.35rem);
+  font-size: clamp(1.6rem, 4vw, 2.35rem);
   color: var(--gold-bright);
   line-height: 1.4;
   text-shadow: 0 2px 14px rgba(212, 175, 55, 0.35);
@@ -820,7 +831,7 @@
 
 .invitation-formal-intro {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.12rem, 2.2vw, 1.35rem);
+  font-size: clamp(1.1rem, 2.2vw, 1.35rem);
   line-height: 1.6;
   color: #efe6ce;
   max-width: 580px;
@@ -847,8 +858,9 @@
 .couple-display-name {
   font-family: 'Great Vibes', cursive;
   font-weight: 400;
-  font-size: clamp(3.1rem, 8vw, 5.2rem);
-  line-height: 1.1;
+  font-size: clamp(3rem, 8vw, 5.2rem);
+  line-height: 1.15;
+  padding: 0 12px;
   background: linear-gradient(180deg, #fffdf7 0%, #ffe599 55%, #d4af37 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -965,7 +977,7 @@
 
 .section-heading {
   font-family: 'Cinzel Decorative', serif;
-  font-size: clamp(1.6rem, 3.6vw, 2.3rem);
+  font-size: clamp(1.55rem, 3.6vw, 2.3rem);
   color: #fffdf7;
   margin-bottom: 8px;
 }
@@ -1008,7 +1020,7 @@
 
 .ceremonies-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
   gap: 24px;
 }
 
@@ -1169,6 +1181,7 @@
 .gold-outline-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   padding: 11px 22px;
   border-radius: 999px;
@@ -1304,6 +1317,7 @@
   font-size: 0.9rem;
   outline: none;
   transition: border-color 0.2s ease;
+  width: 100%;
 }
 
 .form-group input:focus,
@@ -1370,6 +1384,7 @@
 .wish-time {
   font-size: 0.72rem;
   color: var(--text-muted);
+  white-space: nowrap;
 }
 
 .wish-body {
@@ -1451,30 +1466,32 @@
   }
 
   .hanging-lantern svg {
-    width: 60px;
-    height: 175px;
-  }
-
-  .inland-3d-card {
-    height: min(64vh, 410px);
-    min-height: 340px;
+    width: 58px;
+    height: 170px;
   }
 
   .invitation-main-container {
-    padding: 84px 16px 56px;
-    gap: 40px;
+    padding: 82px 16px 52px;
+    gap: 38px;
   }
 }
 
 @media (max-width: 640px) {
-  /* Top Floating Navigation Bar on Mobile */
+  /* Show compact button labels in topbar on mobile */
+  .desktop-label {
+    display: none;
+  }
+
+  .mobile-label {
+    display: inline;
+  }
+
   .royal-topbar {
     padding: 10px 12px;
-    gap: 8px;
   }
 
   .brand-monogram {
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     padding: 4px 10px;
   }
 
@@ -1487,65 +1504,75 @@
   }
 
   .topbar-btn {
-    padding: 7px 11px;
-    font-size: 0.73rem;
+    padding: 6px 11px;
+    font-size: 0.74rem;
     gap: 5px;
   }
 
-  /* Hanging Lanterns on Mobile so they don't cover text */
+  /* Hanging Lanterns scaled neatly for mobile corners */
   .hanging-lantern {
-    top: -18px;
-    opacity: 0.72;
+    top: -16px;
+    opacity: 0.65;
   }
 
   .lantern-left {
-    left: 4px;
+    left: 2px;
   }
 
   .lantern-right {
-    right: 4px;
+    right: 2px;
   }
 
   .hanging-lantern svg {
-    width: 46px;
-    height: 135px;
+    width: 42px;
+    height: 122px;
   }
 
   /* Stage 1: 3D Inland Letter on Mobile */
   .inland-stage-overlay {
-    min-height: 100dvh;
-    padding: 66px 12px 22px;
+    padding: 62px 12px 20px;
     justify-content: center;
-    gap: 14px;
-    overflow: hidden;
+    gap: 12px;
   }
 
   .inland-top-caption {
-    margin-bottom: 2px;
+    margin-bottom: 0;
     padding: 0 4px;
   }
 
   .inland-badge {
-    font-size: 0.64rem;
-    letter-spacing: 0.14em;
-    padding: 5px 12px;
-    margin-bottom: 6px;
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    padding: 4px 10px;
+    margin-bottom: 5px;
   }
 
   .inland-subtitle-hint {
-    font-size: 0.82rem;
-    line-height: 1.4;
+    font-size: 0.8rem;
+    line-height: 1.35;
   }
 
   .inland-perspective-scene {
-    padding: 6px 0;
+    padding: 4px 0;
     margin: 0;
   }
 
   .inland-3d-card {
-    width: min(94vw, 420px);
-    height: clamp(330px, 56dvh, 390px);
-    min-height: 325px;
+    width: min(94vw, 400px);
+    height: 390px;
+  }
+
+  /* When revealed on mobile, allow inner card to fit all content comfortably */
+  .inland-3d-card.phase-revealed {
+    height: auto;
+    min-height: 375px;
+  }
+
+  .inland-3d-card.phase-revealed .inland-inner-sheet {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    min-height: 375px;
   }
 
   /* Inner Letter Sheet Mobile Fitting */
@@ -1554,12 +1581,12 @@
   }
 
   .inland-inner-border {
-    padding: 12px 10px;
+    padding: 14px 10px;
     outline-offset: -5px;
   }
 
   .inland-bismillah {
-    font-size: 1.15rem;
+    font-size: 1.12rem;
   }
 
   .inland-blessing-line {
@@ -1573,11 +1600,11 @@
   }
 
   .inland-couple-names h2 {
-    font-size: clamp(1.55rem, 6.5vw, 2rem);
+    font-size: clamp(1.55rem, 6.5vw, 1.95rem);
   }
 
   .inland-ampersand {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
   }
 
   .inland-divider-gold {
@@ -1585,13 +1612,13 @@
   }
 
   .inland-date-highlight {
-    font-size: 0.74rem;
+    font-size: 0.72rem;
     letter-spacing: 0.1em;
     margin-bottom: 6px;
   }
 
   .inland-mini-events {
-    gap: 5px;
+    gap: 6px;
     margin-bottom: 6px;
   }
 
@@ -1602,41 +1629,49 @@
 
   .inland-venue-line {
     font-size: 0.75rem;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
   }
 
   .inland-inner-border .enter-invitation-btn {
-    padding: 9px 15px;
+    padding: 10px 14px;
     font-size: 0.76rem;
-    width: 94%;
+    width: 96%;
   }
 
-  /* Outer Flaps Mobile Adjustments */
+  /* Sealed Flaps Layout on Mobile (Zero overlap with Wax Seal) */
+  .inland-flap-top {
+    height: 43%;
+  }
+
   .top-outer-face {
-    padding: 14px 12px;
-    border-radius: 12px 12px 28px 28px;
+    padding: 12px 10px 8px;
+    border-radius: 14px 14px 26px 26px;
   }
 
   .inland-type-title {
-    font-size: 0.54rem;
-    letter-spacing: 0.14em;
+    font-size: 0.52rem;
+    letter-spacing: 0.12em;
   }
 
   .inland-front-monogram {
-    font-size: clamp(1.75rem, 7vw, 2.2rem);
-    margin: 4px 0 2px;
+    font-size: clamp(1.65rem, 6.8vw, 2.05rem);
+    margin: 2px 0 1px;
   }
 
   .inland-front-sub {
-    font-size: 0.68rem;
+    font-size: 0.65rem;
+  }
+
+  .inland-flap-bottom {
+    height: 59%;
   }
 
   .bottom-outer-face {
-    padding: 14px 12px 12px;
+    padding: 12px 12px 10px;
   }
 
   .inland-address-box {
-    padding: 10px 12px;
+    padding: 8px 10px;
   }
 
   .inland-stamp-row {
@@ -1644,127 +1679,146 @@
   }
 
   .inland-postmark {
-    width: 60px;
-    height: 60px;
-    font-size: 0.45rem;
+    width: 54px;
+    height: 54px;
+    font-size: 0.42rem;
   }
 
   .inland-postmark strong {
-    font-size: 0.52rem;
+    font-size: 0.48rem;
   }
 
   .inland-royal-stamp {
-    width: 66px;
+    width: 62px;
     padding: 4px;
   }
 
   .stamp-center {
-    font-size: 0.62rem;
+    font-size: 0.58rem;
   }
 
   .to-label {
-    font-size: 0.72rem;
+    font-size: 0.7rem;
   }
 
   .to-sub {
-    font-size: 0.65rem;
+    font-size: 0.63rem;
+    line-height: 1.3;
   }
 
   .to-names-script {
-    font-size: 1rem;
+    font-size: 0.98rem;
+  }
+
+  .inland-wing-left,
+  .inland-wing-right {
+    width: 18%;
   }
 
   .wing-vertical-text {
-    font-size: 0.5rem;
-    letter-spacing: 0.14em;
+    font-size: 0.46rem;
+    letter-spacing: 0.12em;
   }
 
-  /* Wax Seal on Mobile */
+  /* Wax Seal on Mobile centered cleanly between Top header & Bottom recipient box */
+  .royal-wax-seal-btn,
+  .wax-burst-ring {
+    top: 43%;
+  }
+
   .wax-seal-disc {
-    width: 80px;
-    height: 80px;
+    width: 74px;
+    height: 74px;
   }
 
   .wax-seal-pulse {
-    width: 82px;
-    height: 82px;
+    width: 76px;
+    height: 76px;
   }
 
   .wax-seal-inner-ring {
-    width: 64px;
-    height: 64px;
+    width: 58px;
+    height: 58px;
+  }
+
+  .wax-arabic-top {
+    font-size: 0.55rem;
   }
 
   .wax-monogram {
-    font-size: 0.92rem;
+    font-size: 0.88rem;
+  }
+
+  .wax-date-tiny {
+    font-size: 0.46rem;
   }
 
   .wax-click-cta {
-    font-size: 0.65rem;
-    padding: 4px 10px;
+    font-size: 0.62rem;
+    padding: 3px 9px;
   }
 
   .inland-bottom-controls {
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-top: 4px;
+    margin-top: 2px;
   }
 
   .inland-action-pill {
-    width: min(92vw, 340px);
-    justify-content: center;
-    padding: 11px 18px;
-    font-size: 0.82rem;
+    width: min(94vw, 340px);
+    padding: 11px 16px;
+    font-size: 0.8rem;
   }
 
   /* Stage 2: Hero Royal Archway Card on Mobile */
   .hero-arch-card {
     border-radius: 20px;
-    padding: 42px 16px 28px;
+    padding: 46px 14px 26px;
   }
 
   .hero-arch-svg-frame {
     inset: 6px;
     width: calc(100% - 12px);
     height: calc(100% - 12px);
+    opacity: 0.45;
   }
 
   .arabic-calligraphy {
-    font-size: 1.45rem;
+    font-size: 1.4rem;
   }
 
   .bismillah-translation {
-    font-size: 0.88rem;
+    font-size: 0.86rem;
   }
 
   .invitation-formal-intro {
-    font-size: 1.02rem;
-    margin-bottom: 20px;
+    font-size: 1rem;
+    margin-bottom: 18px;
     padding: 0 4px;
   }
 
   .couple-names-stage {
-    margin: 16px 0 22px;
+    margin: 14px 0 22px;
     gap: 8px;
   }
 
   .couple-display-name {
-    font-size: clamp(2.55rem, 11vw, 3.4rem);
+    font-size: clamp(2.45rem, 11vw, 3.3rem);
   }
 
   .quran-verse-box {
-    padding: 14px 14px;
-    margin-bottom: 22px;
+    padding: 14px 12px;
+    margin-bottom: 20px;
     border-radius: 14px;
   }
 
   .verse-arabic {
-    font-size: 1.08rem;
+    font-size: 1.05rem;
   }
 
   .verse-english {
-    font-size: 0.92rem;
+    font-size: 0.9rem;
   }
 
   .hero-key-highlights {
@@ -1775,24 +1829,29 @@
   .highlight-pill {
     width: 100%;
     min-width: 0;
-    padding: 12px 16px;
+    padding: 12px 14px;
   }
 
   .pill-value {
-    font-size: 1.1rem;
+    font-size: 1.08rem;
   }
 
   /* Ceremonies & Mood Switcher on Mobile */
   .section-title-block {
-    margin-bottom: 20px;
+    margin-bottom: 18px;
+  }
+
+  .section-eyebrow {
+    font-size: 0.66rem;
+    letter-spacing: 0.16em;
   }
 
   .section-heading {
-    font-size: 1.45rem;
+    font-size: 1.4rem;
   }
 
   .section-subheading {
-    font-size: 0.86rem;
+    font-size: 0.85rem;
   }
 
   .mood-switcher-pills {
@@ -1812,7 +1871,7 @@
   }
 
   .ceremony-card {
-    padding: 18px 16px;
+    padding: 18px 15px;
     border-radius: 18px;
   }
 
@@ -1822,7 +1881,7 @@
 
   /* Countdown Section on Mobile (Clean 2x2 Grid) */
   .countdown-card {
-    padding: 26px 16px;
+    padding: 24px 14px;
     border-radius: 20px;
   }
 
@@ -1834,32 +1893,31 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
-    max-width: 300px;
-    margin: 20px auto;
+    max-width: 290px;
+    margin: 18px auto;
   }
 
   .time-unit-box {
     min-width: 0;
     width: 100%;
-    padding: 14px 10px;
+    padding: 12px 8px;
   }
 
   .time-number {
-    font-size: 1.65rem;
+    font-size: 1.6rem;
   }
 
   .gold-outline-btn {
     width: 100%;
-    justify-content: center;
-    padding: 12px 16px;
-    font-size: 0.82rem;
+    padding: 12px 14px;
+    font-size: 0.8rem;
   }
 
   /* Venue Showcase Card on Mobile */
   .venue-showcase-card {
-    padding: 22px 16px;
+    padding: 22px 14px;
     border-radius: 20px;
-    gap: 20px;
+    gap: 18px;
   }
 
   .venue-text-col {
@@ -1869,18 +1927,18 @@
   .landmark-chip {
     justify-content: center;
     text-align: center;
-    font-size: 0.8rem;
+    font-size: 0.78rem;
   }
 
   .venue-map-btn {
     width: 100%;
-    padding: 12px 16px;
-    font-size: 0.82rem;
+    padding: 12px 14px;
+    font-size: 0.8rem;
   }
 
   /* Wishes & RSVP Form on Mobile (16px inputs to prevent iOS auto-zoom) */
   .rsvp-glass-form {
-    padding: 20px 16px;
+    padding: 18px 14px;
     border-radius: 18px;
   }
 
@@ -1901,7 +1959,7 @@
 
   /* Footer on Mobile */
   .royal-footer {
-    padding: 28px 12px 16px;
+    padding: 26px 12px 16px;
   }
 
   .footer-couple-title {
@@ -1909,26 +1967,21 @@
   }
 
   .footer-details {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     line-height: 1.5;
   }
 }
 
-@media (max-width: 375px) {
-  .topbar-btn span {
-    max-width: 115px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
+@media (max-width: 360px) {
   .inland-3d-card {
-    height: 330px;
-    min-height: 310px;
+    height: 375px;
   }
 
   .inland-couple-names h2 {
-    font-size: 1.45rem;
+    font-size: 1.4rem;
+  }
+
+  .couple-display-name {
+    font-size: 2.25rem;
   }
 }
-
